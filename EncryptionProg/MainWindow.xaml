@@ -1,0 +1,146 @@
+﻿<Window x:Class="EncryptionProg.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EncryptionProg"
+        mc:Ignorable="d"
+        Title="Encryption" Height="600" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="SM#Encript" Grid.RowSpan="2" Grid.ColumnSpan="13" TextAlignment="Left" VerticalAlignment="Center" Padding="40,20,0,20" FontSize="40" FontWeight="Bold" TextWrapping="Wrap" TextDecorations="Underline" Background="#1d4ac4" Foreground="#b8becf" Opacity="0.8">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="314" Color="Black" ShadowDepth="30" Opacity="1"></DropShadowEffect>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="6" Background="LightGray" CornerRadius="25,3,3,3" Margin="3"></Border>
+        <Grid Grid.Row="2" Grid.ColumnSpan="5" Grid.RowSpan="12" Margin="7" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect></DropShadowEffect>
+            </Grid.Effect>
+            <Border Grid.RowSpan="9" Grid.ColumnSpan="6" CornerRadius="0" Background="White">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="50" ShadowDepth="10" Color="Gray" Opacity="0.9"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+            <Button x:Name="encrypt" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="20,25,20,25" Content="Encrypt" FontSize="30" FontWeight="DemiBold" Background="LightGray"></Button>
+            <Button x:Name="decipher" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="20,25,20,25" Content="Deсipher" FontSize="30" FontWeight="DemiBold" Background="LightGray"></Button>
+            <Border Grid.Row="4" Grid.ColumnSpan="6" Grid.RowSpan="2" CornerRadius="30" Background="DarkBlue" Margin="15,0,15,5">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="40" ShadowDepth="20" Direction="4" Color="#FFE98D1F"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+            <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Margin="30,0,30,0" Text="Enter key" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" FontStyle="Italic" Foreground="White" Background="Black"></TextBlock>
+            <TextBox x:Name="key" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="30,0,30,15" Background="Black" Foreground="White"></TextBox>
+            <Border Grid.Row="6" Grid.ColumnSpan="6" Grid.RowSpan="2" CornerRadius="20" Background="DarkBlue" Margin="15,5,15,0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="40" ShadowDepth="20" Direction="4" Color="#FFDCD858"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+            <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6" Margin="30,0,30,0" Text="Enter output format" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" FontStyle="Italic" Foreground="White" Background="Black"></TextBlock>
+            <TextBox x:Name="output_format" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="30,0,30,15" Background="Black" Foreground="White"></TextBox>
+            
+
+        </Grid>
+        <TextBlock x:Name="add" Grid.Row="2" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="17,0,17,0" Background="#e4e5eb">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="10" ShadowDepth="3"></DropShadowEffect>
+            </TextBlock.Effect>
+        <StackPanel>
+            <Image Source="pack://application:,,,/Picture/add.png" Stretch="Fill" Width="50" Height="50" Margin="30,5,0,0"></Image>
+            <TextBlock Text="ADD" TextAlignment="Center" Margin="22,0,0,0" FontWeight="Bold" FontSize="15"></TextBlock>
+        </StackPanel>
+    </TextBlock>
+        
+        <TextBlock x:Name="remove_all" Grid.Row="2" Grid.Column="9" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="17,0,17,0" Background="#e4e5eb">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="10" ShadowDepth="3"></DropShadowEffect>
+            </TextBlock.Effect>
+        <StackPanel>
+            <Image Source="pack://application:,,,/Picture/remove_all.png" Stretch="Fill" Width="50" Height="50" Margin="10,5,0,0"></Image>
+            <TextBlock Text="REMOVE ALL" TextAlignment="Center" Margin="5,0,0,0" FontWeight="Bold" FontSize="15"></TextBlock>
+        </StackPanel>
+    </TextBlock>
+        <DataGrid SelectionMode="Single" AutoGenerateColumns="False" x:Name="list_items" Grid.Row="5" Grid.Column="5" Grid.RowSpan="8" Grid.ColumnSpan="8" Margin="20,0,20,20" Background="DarkGray" Foreground="DarkGreen">
+            <DataGrid.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="7"></DropShadowEffect>
+            </DataGrid.Effect>
+            <DataGrid.BorderThickness>
+                <Thickness>3</Thickness>
+            </DataGrid.BorderThickness>
+            
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="delete_button" Content="Click-delete" IsEnabled="True" Click="delete_button_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Path" Binding="{Binding Path}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Size" Binding="{Binding Size,StringFormat={}{0:F3}}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data of created" Binding="{Binding DateCreated, StringFormat={}{0:dd/MM/yyyy}}"></DataGridTextColumn>
+                
+            </DataGrid.Columns>
+            
+        </DataGrid>
+       
+        <ProgressBar x:Name="progress_bar" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="8" Margin="20,10,20,10" Background="DarkRed" Minimum="0" Maximum="100"></ProgressBar>
+
+    </Grid>
+</Window>
