@@ -13,12 +13,16 @@ using System.Windows.Data;
 using System.Windows.Threading;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ComponentModel;
+using System.Timers;
+using System.IO.MemoryMappedFiles;
 
 
 namespace FunctionalLibrary
 {
     public static class SomeFunk
     {
+        
         public static void FuncAdd(this TextBlock textBlock, System.Windows.Controls.DataGrid list_items, List<FileItem> list_source)
         {
 
@@ -32,9 +36,9 @@ namespace FunctionalLibrary
                     Multiselect = true,
                     Filters =
                     {
+                        new CommonFileDialogFilter("All Files", "*.*"),
                         new CommonFileDialogFilter("Text files", "*.txt"),
-                        new CommonFileDialogFilter("Image Files", "*.jpg;*.jpeg;*.png"),
-                        new CommonFileDialogFilter("All Files", "*.*")
+                        new CommonFileDialogFilter("Image Files", "*.jpg;*.jpeg;*.png") 
                     }
 
                 };
@@ -87,65 +91,160 @@ namespace FunctionalLibrary
                 System.Windows.MessageBox.Show("Список порожній, додайте файли в список");
             }
         }
-        public static void EncrypteFiles(this List<string> AllPath, List<string> OutputFile, byte[] key)
+        public static bool EncrypteFiles(this List<string> AllPath, List<string> OutputFile, byte[] key, BackgroundWorker backgroundWorkerEncrypt, System.Timers.Timer _timer)
         {
-            for (int i = 0; i < AllPath.Count; i++)
+            bool succesfull = false;
+            try
             {
-                using (Aes aesAlg = Aes.Create())
+                double bytesUsing = 0d;
+                double filesSize = 0d;
+                for(int i = 0; i < AllPath.Count; i++)
                 {
-                    aesAlg.Key = key;
-                    aesAlg.GenerateIV();
-                    using (FileStream fsOut = new FileStream(OutputFile[i], FileMode.Create))
+                    FileInfo fileInfo = new FileInfo(AllPath[i]);
+                    filesSize += fileInfo.Length;
+                }
+                for (int i = 0; i < AllPath.Count; i++)
+                {
+                    using (Aes aesAlg = Aes.Create())
                     {
-                        fsOut.Write(aesAlg.IV, 0, aesAlg.IV.Length);
-                        using (CryptoStream cs = new CryptoStream(fsOut, aesAlg.CreateEncryptor(), CryptoStreamMode.Write))
+                        aesAlg.Key = key;
+                        aesAlg.GenerateIV();
+                        aesAlg.Padding = PaddingMode.PKCS7;
+                        using (FileStream fsOut = new FileStream(OutputFile[i], FileMode.Create))
                         {
-                            using (FileStream fsIn = new FileStream(AllPath[i], FileMode.Open))
+                            fsOut.Write(aesAlg.IV, 0, aesAlg.IV.Length);
+                            using (CryptoStream cs = new CryptoStream(fsOut, aesAlg.CreateEncryptor(), CryptoStreamMode.Write))
                             {
-                                fsIn.CopyTo(cs);
+
+                                using (FileStream fsIn = new FileStream(AllPath[i], FileMode.Open))
+                                {
+                                    byte[] buffer = new byte[8192];
+                                    int byteRead;
+                                    while ((byteRead = fsIn.Read(buffer, 0, buffer.Length)) > 0)
+                                    {
+                                        cs.Write(buffer, 0, byteRead);
+                                        bytesUsing += byteRead;
+                                        backgroundWorkerEncrypt.ReportProgress((int)((bytesUsing / filesSize) * 100));
+                                    }
+                                    cs.FlushFinalBlock();
+                                }   
+                               
                             }
                         }
                     }
                 }
+                _timer.Start();
+                succesfull = true;
             }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Неправильно введений ключ", $"Помилка {ex.Message}", MessageBoxButton.OK, MessageBoxImage.Stop);
+                _timer.Start();
+            }
+            return succesfull;
         }
-        public static void DecryptFile(this List<string> AllPath, List<string> OutputFile, byte[] key)
+        public static bool DecryptFile(this List<string> AllPath, List<string> OutputFile, byte[] key, BackgroundWorker backgroundWorkerDecipher, System.Timers.Timer _timer)
         {
-            for(int i = 0; i < AllPath.Count; i++)
+            bool succesfull = false;
+            try
             {
-                using (Aes aesAlg = Aes.Create())
+                double bytesUsing = 0d;
+                double filesSize = 0d;
+                for (int i = 0; i < AllPath.Count; i++)
                 {
-                    aesAlg.Key = key;
-                    using (FileStream fsIn = new FileStream(AllPath[i], FileMode.Open))
+                    FileInfo fileInfo = new FileInfo(AllPath[i]);
+                    filesSize += fileInfo.Length;
+                }
+                for (int i = 0; i < AllPath.Count; i++)
+                {
+                    using (Aes aesAlg = Aes.Create())
                     {
-                        byte[] iv = new byte[aesAlg.BlockSize / 8];
-                        fsIn.Read(iv, 0, iv.Length);
-                        aesAlg.IV = iv;
-                        using (CryptoStream cs = new CryptoStream(fsIn, aesAlg.CreateDecryptor(), CryptoStreamMode.Read))
+                        aesAlg.Key = key;
+                        aesAlg.Padding = PaddingMode.PKCS7;
+                        using (FileStream fsIn = new FileStream(AllPath[i], FileMode.Open))
                         {
-                            using(FileStream fsOut = new FileStream(OutputFile[i], FileMode.Create))
+                            byte[] iv = new byte[aesAlg.BlockSize / 8];
+                            fsIn.Read(iv, 0, iv.Length);
+                            aesAlg.IV = iv;
+                            using (CryptoStream cs = new CryptoStream(fsIn, aesAlg.CreateDecryptor(), CryptoStreamMode.Read))
                             {
-                                cs.CopyTo(fsOut);
+                                using (FileStream fsOut = new FileStream(OutputFile[i], FileMode.Create))
+                                {
+
+
+                                    byte[] buffer = new byte[8192];
+                                    int bytesRead;
+                                    while ((bytesRead = cs.Read(buffer, 0, buffer.Length)) > 0)
+                                    {
+                                        fsOut.Write(buffer, 0, bytesRead);
+                                        bytesUsing += bytesRead;
+                                        backgroundWorkerDecipher.ReportProgress((int)((bytesUsing / filesSize) * 100));
+                                    }
+
+
+                                }
+
+
                             }
                         }
                     }
                 }
+                backgroundWorkerDecipher.ReportProgress(100);
+                succesfull = true;
+                _timer.Start();
             }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Неправильно введений ключ", $"Помилка {ex.Message}", MessageBoxButton.OK, MessageBoxImage.Stop);
+                _timer.Start();
+            }
+            return succesfull;
         }
         public static bool IsFileEncryptedWithAes(this string filePath)
         {
-            try
+            
+            bool entropy_test = false;
+            using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile($"{filePath}", FileMode.Open))
             {
-                using (StreamReader reader = new StreamReader(filePath))
+                using (MemoryMappedViewStream stream = mmf.CreateViewStream())
                 {
-                    string firstLine = reader.ReadLine();
-                    return false;
+                    byte[] buffer = new byte[8192];
+                    int bytesRead;
+                    bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    double entropy = buffer.CalculateEntropy();
+                    if (entropy > 5.5)
+                    {
+                        entropy_test = true;
+                        
+                    }
+                    else
+                    {
+                        entropy_test = false;
+                        
+                    }
+
                 }
             }
-            catch
+            return entropy_test;
+
+        }
+        public static double CalculateEntropy(this byte[] data)
+        {
+            int[] byteCount = new int[8192];
+            foreach (byte b in data)
             {
-                return true;
+                byteCount[b]++;
             }
+            double entropy = 0.0;
+            int dataSize = data.Length;
+            foreach (int count in byteCount)
+            {
+                if (count == 0)
+                    continue;
+                double frequency = (double)count / dataSize;
+                entropy -= frequency * Math.Log(frequency, 2);
+            }
+            return entropy;
         }
     }
 }

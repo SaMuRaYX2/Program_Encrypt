@@ -18,6 +18,8 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Data.SqlTypes;
 using System.Security.Cryptography;
+using System.ComponentModel;
+using System.Threading;
 
 namespace EncryptionProg
 {
@@ -29,9 +31,27 @@ namespace EncryptionProg
         public List<FileItem> List_Source { get; set; }
         private byte[] key_encrypte { get; set; }
         private string output_extension { get; set; }
+        private BackgroundWorker backgroundWorkerEncrypt { get; set; }
+        private BackgroundWorker backgroundWorkerDecipher { get; set; }
+        public string ChoosenOperation { get; set; }
+        private System.Timers.Timer _timer { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            _timer = new System.Timers.Timer(5000);
+            _timer.Elapsed += _timer_ElapsedAsync;
+            _timer.AutoReset = false;
+            
+            backgroundWorkerEncrypt = new BackgroundWorker();
+            backgroundWorkerEncrypt.WorkerReportsProgress = true;
+            backgroundWorkerEncrypt.DoWork += BackgroundWorker_DoWork_Encrypt;
+            backgroundWorkerEncrypt.RunWorkerCompleted += BackgroundWorkerEncrypt_RunWorkerCompleted;
+            backgroundWorkerEncrypt.ProgressChanged += BackgroundWorkerEncrypt_ProgressChanged;
+            backgroundWorkerDecipher = new BackgroundWorker();
+            backgroundWorkerDecipher.WorkerReportsProgress = true;
+            backgroundWorkerDecipher.DoWork += BackgroundWorker_DoWork_Decipher;
+            backgroundWorkerDecipher.RunWorkerCompleted += BackgroundWorkerDecipher_RunWorkerCompleted;
+            backgroundWorkerDecipher.ProgressChanged += BackgroundWorkerDecipher_ProgressChanged;
             add.MouseDown += Add_MouseDown;
             List_Source = new List<FileItem>();
             list_items.ItemsSource = List_Source;
@@ -40,6 +60,192 @@ namespace EncryptionProg
             decipher.Click += Decipher_Click;
             key.LostFocus += Key_LostFocus;
             output_format.LostFocus += Output_format_LostFocus;
+        }
+
+        private async void _timer_ElapsedAsync(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(() =>
+            {
+                progress_bar_decipher.Value = 0;
+                progress_bar_encrypt.Value = 0;
+            });
+            
+            
+
+        }
+
+        private void BackgroundWorkerDecipher_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progress_bar_decipher.Value = e.ProgressPercentage;
+        }
+
+        private void BackgroundWorkerEncrypt_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progress_bar_encrypt.Value = e.ProgressPercentage;
+        }
+
+        private void BackgroundWorkerDecipher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show("Program is cancelled :)");
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show("Program finished with Error :(");
+            }
+            else
+            {
+                MessageBox.Show("Program finished succesfull");
+            }
+        }
+
+        private void BackgroundWorkerEncrypt_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show("Program is cancelled :)");
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show("Program finished with Error :(");
+            }
+            else
+            {
+                MessageBox.Show("Program finished succesfull");
+            }
+        }
+
+        private void BackgroundWorker_DoWork_Decipher(object sender, DoWorkEventArgs e)
+        {
+
+            var selectedItems = List_Source;
+            if (selectedItems != null)
+            {
+                List<string> AllPath = new List<string>();
+                List<string> OutputPath = new List<string>();
+                foreach (var selectedItem in selectedItems)
+                {
+                    if (selectedItem.Path.IsFileEncryptedWithAes())
+                    {
+                        AllPath.Add(selectedItem.Path);
+                    }
+                }
+                foreach (string selectedItem in AllPath)
+                {
+                    string[] partsOfDirection = selectedItem.Split('\\');
+                    string partsLast = partsOfDirection[partsOfDirection.Length - 1];
+                    string[] parts = partsLast.Split('.');
+                    string part1 = parts[0];
+                    string part2 = parts[1];
+                    string newPath = parts[0] + "." + output_extension;                 
+                    string result = "";
+                    for (int i = 0; i < partsOfDirection.Length - 1; i++)
+                    {
+                        result += partsOfDirection[i] + @"\";
+                    }
+                    result += newPath;
+                    OutputPath.Add(result);
+                }
+                if (AllPath.Count != 0)
+                {
+
+                    if (AllPath.DecryptFile(OutputPath, key_encrypte, backgroundWorkerDecipher, _timer))
+                    {
+                        foreach (string selectedItem in AllPath)
+                        {
+                            if (File.Exists(selectedItem))
+                            {
+                                File.Delete(selectedItem);
+                            }
+                        }
+                        List_Source.Clear();
+                        Application.Current.Dispatcher.InvokeAsync(() =>
+                        {
+                            CollectionViewSource.GetDefaultView(list_items.ItemsSource).Refresh();
+                        });
+                        
+                    }
+                    else
+                    {
+                        foreach (string createdItem in OutputPath)
+                        {
+                            if (File.Exists(createdItem))
+                            {
+                                File.Delete(createdItem);
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+
+
+        private void BackgroundWorker_DoWork_Encrypt(object sender, DoWorkEventArgs e)
+        {
+            var selectedItems = List_Source;
+            if (selectedItems != null)
+            {
+                List<string> AllPath = new List<string>();
+                List<string> OutputPath = new List<string>();
+                foreach (var selectedItem in selectedItems)
+                {
+                    if (!selectedItem.Path.IsFileEncryptedWithAes())
+                    {
+                        AllPath.Add(selectedItem.Path);
+                    }
+                }
+                foreach (string selectedItem in AllPath)
+                {
+                    string[] partsOfDirection = selectedItem.Split('\\');
+                    string partsLast = partsOfDirection[partsOfDirection.Length - 1];
+
+                    string[] parts = partsLast.Split('.');
+                    string part1 = parts[0];
+                    string part2 = parts[1];
+                    string newPath = parts[0] + "." + output_extension;
+                    string result = "";
+                    for (int i = 0; i < partsOfDirection.Length - 1; i++)
+                    {
+                        result += partsOfDirection[i] + @"\";
+                    }
+                    result += newPath;
+                    OutputPath.Add(result);
+                }
+                if (AllPath.Count != 0)
+                {
+
+                    if (AllPath.EncrypteFiles(OutputPath, key_encrypte, backgroundWorkerEncrypt, _timer))
+                    {
+                        foreach (string selectedItem in AllPath)
+                        {
+                            if (File.Exists(selectedItem))
+                            {
+                                File.Delete(selectedItem);
+                            }
+                        }
+                        List_Source.Clear();
+                        Application.Current.Dispatcher.InvokeAsync(() =>
+                        {
+                            CollectionViewSource.GetDefaultView(list_items.ItemsSource).Refresh();
+                        });
+                        
+                    }
+                    else
+                    {
+                        foreach (string createdItem in OutputPath)
+                        {
+                            if (File.Exists(createdItem))
+                            {
+                                File.Delete(createdItem);
+                            }
+                        }
+                    }
+                }
+            }
+
         }
 
         private void Output_format_LostFocus(object sender, RoutedEventArgs e)
@@ -71,136 +277,62 @@ namespace EncryptionProg
 
         private void Decipher_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
+            
+            if (!backgroundWorkerDecipher.IsBusy)
             {
-                var selectedItems = List_Source;
-                if (selectedItems != null)
+                if (!string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
                 {
-                    List<string> AllPath = new List<string>();
-                    List<string> OutputPath = new List<string>();
-                    foreach (var selectedItem in selectedItems)
+                    backgroundWorkerDecipher.RunWorkerAsync();
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
                     {
-                        if (!selectedItem.Path.IsFileEncryptedWithAes())
-                        {
-                            AllPath.Add(selectedItem.Path);
-                        }
+                        MessageBox.Show("Введіть ключ для розшифрування");
+                        key.Focus();
                     }
-                    foreach (string selectedItem in AllPath)
-                    {
-                        string[] partsOfDirection = selectedItem.Split('\\');
-                        string partsLast = partsOfDirection[partsOfDirection.Length - 1];
 
-                        string[] parts = partsLast.Split('.');
-                        string part1 = parts[0];
-                        string part2 = parts[1];
-                        string newPath = parts[0] + "." + output_extension;
-                        //string[] newOutput = new string[partsOfDirection.Length - 1];
-                        string result = "";
-                        for (int i = 0; i < partsOfDirection.Length - 1; i++)
-                        {
-                            result += partsOfDirection[i] + @"\";
-                        }
-                        result += newPath;
-                        OutputPath.Add(result);
-                    }
-                    if (AllPath.Count != 0)
+                    else if (!string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
                     {
-                        AllPath.DecryptFile(OutputPath, key_encrypte);
-                        foreach (string selectedItem in AllPath)
-                        {
-                            if (File.Exists(selectedItem))
-                            {
-                                File.Delete(selectedItem);
-                            }
-                        }
+                        MessageBox.Show("Введіть розширення для вивеленого файла");
+                        output_format.Focus();
                     }
-                }
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
-                {
-                    MessageBox.Show("Введіть ключ для шифрування");
-                    key.Focus();
-                }
-
-                else if (!string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
-                {
-                    MessageBox.Show("Введіть розширення для вивеленого файла");
-                    output_format.Focus();
-                }
-                else if (string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
-                {
-                    MessageBox.Show("Введіть значення для ключа шифрування та для розширення для файлу");
-                    key.Focus();
+                    else if (string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
+                    {
+                        MessageBox.Show("Введіть значення для ключа розшифрування та розширення для файлу");
+                        key.Focus();
+                    }
                 }
             }
         }
 
         private void Encrypt_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
+            ChoosenOperation = "Encrypt";
+            if (!backgroundWorkerEncrypt.IsBusy)
             {
-                var selectedItems = List_Source;
-                if (selectedItems != null)
+                if (!string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
                 {
-                    List<string> AllPath = new List<string>();
-                    List<string> OutputPath = new List<string>();
-                    foreach (var selectedItem in selectedItems)
+                    backgroundWorkerEncrypt.RunWorkerAsync();
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
                     {
-                        if (!selectedItem.Path.IsFileEncryptedWithAes())
-                        {
-                            AllPath.Add(selectedItem.Path);
-                        }
+                        MessageBox.Show("Введіть ключ для шифрування");
+                        key.Focus();
                     }
-                    foreach (string selectedItem in AllPath)
-                    {
-                        string[] partsOfDirection = selectedItem.Split('\\');
-                        string partsLast = partsOfDirection[partsOfDirection.Length - 1];
 
-                        string[] parts = partsLast.Split('.');
-                        string part1 = parts[0];
-                        string part2 = parts[1];
-                        string newPath = parts[0] + "." + output_extension;
-                        //string[] newOutput = new string[partsOfDirection.Length - 1];
-                        string result = "";
-                        for(int i = 0; i < partsOfDirection.Length - 1; i++)
-                        {
-                            result += partsOfDirection[i] + @"\";
-                        }
-                        result += newPath;
-                        OutputPath.Add(result);
-                    }
-                    if (AllPath.Count != 0)
+                    else if (!string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
                     {
-                        AllPath.EncrypteFiles(OutputPath, key_encrypte);
-                        foreach(string selectedItem in AllPath)
-                        {
-                            if (File.Exists(selectedItem))
-                            {
-                                File.Delete(selectedItem);
-                            }
-                        }
+                        MessageBox.Show("Введіть розширення для вивеленого файла");
+                        output_format.Focus();
                     }
-                }
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(key.Text) && !string.IsNullOrEmpty(output_extension))
-                {
-                    MessageBox.Show("Введіть ключ для шифрування");
-                    key.Focus();
-                }
-
-                else if (!string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
-                {
-                    MessageBox.Show("Введіть розширення для вивеленого файла");
-                    output_format.Focus();
-                }
-                else if(string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
-                {
-                    MessageBox.Show("Введіть значення для ключа шифрування та для розширення для файлу");
-                    key.Focus();
+                    else if (string.IsNullOrEmpty(key.Text) && string.IsNullOrEmpty(output_extension))
+                    {
+                        MessageBox.Show("Введіть значення для ключа шифрування та для розширення для файлу");
+                        key.Focus();
+                    }
                 }
             }
         }

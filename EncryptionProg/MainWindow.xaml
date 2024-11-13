@@ -140,7 +140,8 @@
             
         </DataGrid>
        
-        <ProgressBar x:Name="progress_bar" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="8" Margin="20,10,20,10" Background="DarkRed" Minimum="0" Maximum="100"></ProgressBar>
-
+        <ProgressBar x:Name="progress_bar_encrypt" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="8" Margin="20,-5,20,35" Background="DarkRed" Minimum="0" Maximum="100" Foreground="Yellow"></ProgressBar>
+        <ProgressBar x:Name="progress_bar_decipher" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="8" Margin="20,20,20,10" Background="DarkRed" Minimum="0" Maximum="100" Foreground="OliveDrab"></ProgressBar>
+        
     </Grid>
 </Window>
