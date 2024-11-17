@@ -3,20 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|c:\\users\\sam\\source\\repos\\encryptionprog\\functionallibrary\\somefunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|solutionrelative:functionallibrary\\somefunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|c:\\users\\sam\\source\\repos\\encryptionprog\\taskmanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\taskmanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{212F99E4-0750-45F4-A54F-8B7DB4EF1785}|EncryptionProg\\EncryptionProg.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\encryptionprog\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{212F99E4-0750-45F4-A54F-8B7DB4EF1785}|EncryptionProg\\EncryptionProg.csproj|solutionrelative:encryptionprog\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{212F99E4-0750-45F4-A54F-8B7DB4EF1785}|EncryptionProg\\EncryptionProg.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\encryptionprog\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{212F99E4-0750-45F4-A54F-8B7DB4EF1785}|EncryptionProg\\EncryptionProg.csproj|solutionrelative:encryptionprog\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\functionallibrary\\alltasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|solutionrelative:functionallibrary\\alltasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\functionallibrary\\somefunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|solutionrelative:functionallibrary\\somefunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\functionallibrary\\fileitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|solutionrelative:functionallibrary\\fileitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\taskmanager\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Temp\\.vsdbgsrc\\373bcd7ca5f2c1df5e5bc1cad566d4b80697da22ed9684b1c271dde27581d613\\ItemContainerGenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Temp\\.vsdbgsrc\\c824721cd7d9c028e31d9faa77b348c59e49e6a99818a102ec7b7f9254f84219\\PropertyPathWorker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Sam\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -24,6 +42,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\functionallibrary\\customcontrol1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}|FunctionalLibrary\\FunctionalLibrary.csproj|solutionrelative:functionallibrary\\customcontrol1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|C:\\Users\\Sam\\source\\repos\\EncryptionProg\\taskmanager\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DA55B810-3157-42F5-AE8A-A130A01389ED}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,45 +67,69 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CommonFileDialog.cs",
-              "DocumentMoniker": "C:\\Users\\Sam\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
-              "ToolTip": "C:\\Users\\Sam\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAuwBkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T14:38:12.284Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SomeFunk.cs",
-              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\SomeFunk.cs",
-              "RelativeDocumentMoniker": "FunctionalLibrary\\SomeFunk.cs",
-              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\SomeFunk.cs",
-              "RelativeToolTip": "FunctionalLibrary\\SomeFunk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T13:12:40.794Z",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "TaskManager\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\MainWindow.xaml",
+              "RelativeToolTip": "TaskManager\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-14T10:58:37.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "TaskManager\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\MainWindow.xaml.cs",
+              "RelativeToolTip": "TaskManager\\MainWindow.xaml.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAUwDAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:58:37.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AllTasks.cs",
+              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\AllTasks.cs",
+              "RelativeDocumentMoniker": "FunctionalLibrary\\AllTasks.cs",
+              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\AllTasks.cs",
+              "RelativeToolTip": "FunctionalLibrary\\AllTasks.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAB0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T12:25:22.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\EncryptionProg\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "EncryptionProg\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\EncryptionProg\\MainWindow.xaml.cs",
               "RelativeToolTip": "EncryptionProg\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAAAYwMIAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAEgBAAAAAAAAAAAAAGQBAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T13:38:34.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "SomeFunk.cs",
+              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\SomeFunk.cs",
+              "RelativeDocumentMoniker": "FunctionalLibrary\\SomeFunk.cs",
+              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\SomeFunk.cs",
+              "RelativeToolTip": "FunctionalLibrary\\SomeFunk.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAmwNYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T13:12:40.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "FileItem.cs",
               "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\FileItem.cs",
               "RelativeDocumentMoniker": "FunctionalLibrary\\FileItem.cs",
@@ -95,7 +141,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
+              "Title": "ItemContainerGenerator.cs",
+              "DocumentMoniker": "C:\\Temp\\.vsdbgsrc\\373bcd7ca5f2c1df5e5bc1cad566d4b80697da22ed9684b1c271dde27581d613\\ItemContainerGenerator.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Temp\\.vsdbgsrc\\373bcd7ca5f2c1df5e5bc1cad566d4b80697da22ed9684b1c271dde27581d613\\ItemContainerGenerator.cs",
+              "ToolTip": "C:\\Temp\\.vsdbgsrc\\373bcd7ca5f2c1df5e5bc1cad566d4b80697da22ed9684b1c271dde27581d613\\ItemContainerGenerator.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Temp\\.vsdbgsrc\\373bcd7ca5f2c1df5e5bc1cad566d4b80697da22ed9684b1c271dde27581d613\\ItemContainerGenerator.cs",
+              "ViewState": "AgIAALkFAAAAAAAAAAAUwH4FAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T22:30:22.291Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "app.manifest",
+              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\app.manifest",
+              "RelativeDocumentMoniker": "TaskManager\\app.manifest",
+              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\app.manifest",
+              "RelativeToolTip": "TaskManager\\app.manifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2024-11-15T12:46:57.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PropertyPathWorker.cs",
+              "DocumentMoniker": "C:\\Temp\\.vsdbgsrc\\c824721cd7d9c028e31d9faa77b348c59e49e6a99818a102ec7b7f9254f84219\\PropertyPathWorker.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Temp\\.vsdbgsrc\\c824721cd7d9c028e31d9faa77b348c59e49e6a99818a102ec7b7f9254f84219\\PropertyPathWorker.cs",
+              "ToolTip": "C:\\Temp\\.vsdbgsrc\\c824721cd7d9c028e31d9faa77b348c59e49e6a99818a102ec7b7f9254f84219\\PropertyPathWorker.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Temp\\.vsdbgsrc\\c824721cd7d9c028e31d9faa77b348c59e49e6a99818a102ec7b7f9254f84219\\PropertyPathWorker.cs [Read Only]",
+              "ViewState": "AgIAAKcEAAAAAAAAAAAgwLcEAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T21:44:34.085Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CommonFileDialog.cs",
+              "DocumentMoniker": "C:\\Users\\Sam\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
+              "ToolTip": "C:\\Users\\Sam\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\f205f8519d85c6664ff96af2e69cad1b47ea10cc3478141818e10587817a4ede\\Source\\Current\\Windows API CodePack\\Components\\Shell\\CommonFileDialogs\\CommonFileDialog.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAuwBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T14:38:12.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\App.xaml",
+              "RelativeDocumentMoniker": "TaskManager\\App.xaml",
+              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\TaskManager\\App.xaml",
+              "RelativeToolTip": "TaskManager\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-14T11:10:26.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "CustomControl1.cs",
               "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\FunctionalLibrary\\CustomControl1.cs",
               "RelativeDocumentMoniker": "FunctionalLibrary\\CustomControl1.cs",
@@ -104,17 +211,6 @@
               "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T12:44:52.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\EncryptionProg\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "EncryptionProg\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Sam\\source\\repos\\EncryptionProg\\EncryptionProg\\MainWindow.xaml",
-              "RelativeToolTip": "EncryptionProg\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-10T12:43:07.846Z"
             }
           ]
         }

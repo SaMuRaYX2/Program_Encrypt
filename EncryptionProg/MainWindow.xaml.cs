@@ -351,7 +351,7 @@ namespace EncryptionProg
             add_box.FuncAdd(list_items, List_Source);
         }
 
-        private void delete_button_Click(object sender, RoutedEventArgs e)
+        private async void delete_button_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var dataGridRow = button?.DataContext as FileItem;
@@ -361,7 +361,7 @@ namespace EncryptionProg
                 if(itemsSource != null)
                 {
                     itemsSource.Remove(dataGridRow);
-                    Dispatcher.CurrentDispatcher.InvokeAsync(() =>
+                    await Dispatcher.CurrentDispatcher.InvokeAsync(() =>
                     {
                         CollectionViewSource.GetDefaultView(list_items.ItemsSource).Refresh();
                     });

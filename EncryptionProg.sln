@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionProg", "Encryptio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalLibrary", "FunctionalLibrary\FunctionalLibrary.csproj", "{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager", "TaskManager\TaskManager.csproj", "{DA55B810-3157-42F5-AE8A-A130A01389ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CD2E49A-FF97-4BA7-B02A-220E309AF04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA55B810-3157-42F5-AE8A-A130A01389ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA55B810-3157-42F5-AE8A-A130A01389ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA55B810-3157-42F5-AE8A-A130A01389ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA55B810-3157-42F5-AE8A-A130A01389ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
